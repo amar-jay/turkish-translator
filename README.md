@@ -38,5 +38,5 @@ This package allows you to get multiple meanings of a word asynchronously betwee
   ```
 
   ## Resources and Contributors
-  - ['Cuneydalan']["http://https://github.com/cuneytdalan/tureng-translator"]
+  - ['Cuneydalan']("http://https://github.com/cuneytdalan/tureng-translator")
 
