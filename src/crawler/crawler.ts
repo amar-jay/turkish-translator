@@ -1,4 +1,4 @@
-const Crawler = require('crawler');
+const Crawler = import('crawler');
 import { TranslationType } from './models/language.enum';
 import { ElementName, ElementType } from './models/element.enum';
 import { Word, WordBlock } from './models/word.interface';
@@ -100,8 +100,8 @@ export class TurengCrawler {
   }
 
   isExpectedAmount(allData: WordBlock[], amount: number) {
-    let amountOfWords: number = 0;
-    let filteredByAmount: WordBlock[] = [];
+    let amountOfWords = 0;
+    const filteredByAmount: WordBlock[] = [];
     allData.forEach((wordBlock, indexOfWordBlock) => {
       if (!filteredByAmount[indexOfWordBlock]) {
         filteredByAmount[indexOfWordBlock] = {
@@ -110,7 +110,7 @@ export class TurengCrawler {
         };
       }
       filteredByAmount[indexOfWordBlock].description = wordBlock.description;
-      wordBlock.words.forEach((word: Word, i: number) => {
+      wordBlock.words.forEach((word: Word) => {
         if (amountOfWords < amount) {
           filteredByAmount[indexOfWordBlock].words.push(word);
           amountOfWords++;
