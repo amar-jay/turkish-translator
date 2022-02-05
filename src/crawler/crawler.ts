@@ -1,4 +1,4 @@
-const Crawler = import('crawler');
+import { Crawler } from 'crawler';
 import { TranslationType } from './models/language.enum';
 import { ElementName, ElementType } from './models/element.enum';
 import { Word, WordBlock } from './models/word.interface';
@@ -116,7 +116,7 @@ export class TurengCrawler {
           amountOfWords++;
         }
       });
-      if(filteredByAmount[indexOfWordBlock].words.length == 0){
+      if (filteredByAmount[indexOfWordBlock].words.length == 0) {
         delete filteredByAmount[indexOfWordBlock];
       }
     });
