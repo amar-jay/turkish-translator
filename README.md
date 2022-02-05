@@ -1,14 +1,14 @@
-### Turkish Translator
+# Turkish Translator
 
 This package allows you to get multiple meanings of a word asynchronously between;
 
-+ Turkish to English
-+ English to Turkish
++ Turkish to English -> ENGTUR
++ English to Turkish -> TURENG
 + French to English
 + Spanish to English
 + German to English
 
-####Example　
+## Example　
 
 ```typescript
  import TurkishTranslate from 'turkish-translate' 
