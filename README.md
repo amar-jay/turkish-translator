@@ -1,4 +1,4 @@
-### Tureng Translator
+### Turkish Translator
 
 This package allows you to get multiple meanings of a word asynchronously between;
 
@@ -10,8 +10,9 @@ This package allows you to get multiple meanings of a word asynchronously betwee
 
 ####Example　
 
-```javascript
- const tc = new TurengCrawler();
+```typescript
+ import TurkishTranslate from 'turkish-translate' 
+ const tc = new TurkishTranslate();
  const data = await tc.translate("aircraft", TranslationType.ENGTUR);
  /*[{
      description: 'Meanings of "aircraft" in Turkish English Dictionary : 42 result(s)',
@@ -34,3 +35,8 @@ This package allows you to get multiple meanings of a word asynchronously betwee
         translatedText: 'uçak'
     } 
   */
+  ```
+
+  ## Resources and Contributors
+  - ['Cuneydalan']["http://https://github.com/cuneytdalan/tureng-translator"]
+
