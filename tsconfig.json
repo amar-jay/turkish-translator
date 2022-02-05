@@ -12,7 +12,8 @@
     "strict": true,
     "baseUrl": ".",
     "removeComments": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "strictNullChecks": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]
