@@ -1,4 +1,4 @@
-export enum ElementName {
+export const enum ElementName {
   TD = 'td',
   TR = 'tr',
   SPAN = 'span',
@@ -7,6 +7,9 @@ export enum ElementName {
   B = 'b',
 }
 
-export enum ElementType {
-  TAG = 'tag',
-}
+// console.log(ElementName);
+
+//export enum ElementType {
+//  TAG = 'tag',
+//}
+//

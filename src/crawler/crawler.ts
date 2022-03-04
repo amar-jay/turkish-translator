@@ -1,10 +1,16 @@
-import { Crawler } from 'crawler';
+import * as Crawler from 'crawler';
+//import Crawler from '@types/crawler';
 import { TranslationType } from './models/language.enum';
-import { ElementName, ElementType } from './models/element.enum';
+import { ElementName } from './models/element.enum';
 import { Word, WordBlock } from './models/word.interface';
 import { Config } from './models/config.interface';
-export class TurengCrawler {
-  c: any;
+export default class TurkishCrawler {
+  c: Crawler.Crawler;
+  constructor() {
+    this.c;
+    this.crawl;
+    this.isExpectedAmount;
+  }
   async translate(word: string, translationType: TranslationType, config?: Config): Promise<WordBlock[]> {
     let conf: Config = new Config();
     if (config) {
@@ -26,14 +32,14 @@ export class TurengCrawler {
     return new Promise<WordBlock[]>((resolve, reject) => {
       this.c = new Crawler({
         maxConnections: 10,
-        callback: ((error: any, res: any, done: any) => {
+        callback: ((error: Error, res: Crawler.Crawler.CrawlerRequestResponse, done: () => void) => {
           if (error) {
             reject(error);
           } else {
             const $ = res.$;
             const searchResults = $(`.tureng-searchresults-col-left`).contents().filter('.table');
             const allWords: WordBlock[] = [];
-            searchResults.each((i: number, table: any) => {
+            searchResults.each((i, table) => {
               const words: Word[] = [];
               const wordBlock: WordBlock = { description: '', words };
               const tableChildren = table.children;
@@ -42,18 +48,18 @@ export class TurengCrawler {
               }
               let order = 1;
               wordBlock.description = this.getWordsContainerHeader(table.prev.prev);
-              tableChildren.forEach((tableElement: any) => {
+              tableChildren.forEach((tableElement) => {
                 if (tableElement.name) {
                   const wordProp = new Word();
-                  tableElement.children.forEach((tdElement: any) => {
+                  tableElement.children.forEach((tdElement) => {
                     if (tdElement.name === ElementName.TD) {
                       if (!tdElement.children) {
                         return;
                       }
-                      const aEl = tdElement.children.filter((e: any) => {
+                      const aEl = tdElement.children.filter((e) => {
                         return e.name === ElementName.A;
                       });
-                      const IEl = tdElement.children.filter((e: any) => {
+                      const IEl = tdElement.children.filter((e) => {
                         return e.name === ElementName.I;
                       });
 
@@ -123,9 +129,9 @@ export class TurengCrawler {
     return filteredByAmount;
   }
 
-  getWordsContainerHeader(hElement: any): string {
+  getWordsContainerHeader(hElement: cheerio.Element): string {
     let header = '';
-    hElement.children.forEach((el: any) => {
+    hElement.children.forEach((el) => {
       if (el.name === ElementName.B) {
         header = header + el.children[0].data;
       } else {
@@ -135,3 +141,12 @@ export class TurengCrawler {
     return header;
   }
 }
+/* Testing */
+// async function print(){
+//     const tureng = new TurkishCrawler();
+//     const data = await tureng.translate('çorba', TranslationType.TURENG);
+//     // console.log(data);
+//     console.log(data[0]?.words.map((each) => each.text));
+// }
+
+// print();

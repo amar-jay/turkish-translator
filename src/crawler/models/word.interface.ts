@@ -1,15 +1,15 @@
 export class Word {
-  text: string;
-  translatedText: string;
+  text: string | undefined;
+  translatedText: string | undefined;
   order: number;
-  category: string;
+  category: string | undefined;
   translatedFrom: string;
   translatedTo: string;
-  type: string;
+  type: string | undefined;
   constructor(word?: Word) {
     if (word) {
       Object.assign(this, word);
-      const keys = Object.keys(word);
+      //      const keys = Object.keys(word);
       //eys.forEach((el: string) => {
       //  const key = el as keyof Word;
       //this = { key : word[key]};
