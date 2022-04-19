@@ -1,11 +1,11 @@
 export declare class Word {
-    text: string;
-    translatedText: string;
+    text: string | undefined;
+    translatedText: string | undefined;
     order: number;
-    category: string;
+    category: string | undefined;
     translatedFrom: string;
     translatedTo: string;
-    type: string;
+    type: string | undefined;
     constructor(word?: Word);
 }
 export interface WordBlock {

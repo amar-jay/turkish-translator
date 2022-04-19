@@ -1,4 +1,4 @@
-export declare enum TranslationType {
+export declare const enum TranslationType {
     TURENG = "turkish-english",
     GERENG = "german-english",
     FREENG = "french-english",

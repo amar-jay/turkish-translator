@@ -7,14 +7,16 @@
       "dom",
       "esnext"
     ],
+    "esModuleInterop": true,
     "declaration": true,
     "outDir": "./lib",
     "strict": true,
+    "noImplicitAny": false,
     "baseUrl": ".",
     "removeComments": true,
     "strictPropertyInitialization": false,
     "strictNullChecks": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "exclude": ["node_modules", "**/__tests__/*",]
 }
