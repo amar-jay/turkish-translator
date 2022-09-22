@@ -1,4 +1,3 @@
-# ❗Currently deprecated
 # Turkish Translator
 
 This package allows you to get multiple meanings of a word asynchronously between;
